@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vector redraw of Artwork/Logo.png (sphere, almond eye, blue pupil) inside the 66dp adaptive safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="@color/icon_sphere"
+        android:pathData="M54,22a32,32 0,1 1,0 64a32,32 0,1 1,0 -64z" />
+    <path
+        android:fillColor="@color/icon_eye"
+        android:pathData="M23,56 C30,40 52,34 86,52 C60,74 34,74 23,56 Z" />
+    <path
+        android:fillColor="@color/brand"
+        android:pathData="M38,47 C38,41 43,39 48,41 L60,47 C65,50 65,56 60,59 L48,65 C43,67 38,65 38,59 Z" />
+</vector>

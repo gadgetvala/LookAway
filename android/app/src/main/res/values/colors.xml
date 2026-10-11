@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand">#1E9BF0</color>
+    <color name="background">#111315</color>
+    <!-- Same 90% black as the macOS break window. -->
+    <color name="overlay_scrim">#E6000000</color>
+    <color name="icon_background">#9A9A9A</color>
+    <color name="icon_sphere">#4A4A4A</color>
+    <color name="icon_eye">#2B2B2B</color>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LookAway</string>
+
+    <!-- Overlay -->
+    <string name="overlay_title">Look Away</string>
+    <string name="overlay_message">Look at something 20 feet away for %1$d seconds. You\'ll hear a sound when it\'s done.</string>
+    <string name="overlay_skip">Skip</string>
+
+    <!-- Notification channels -->
+    <string name="channel_status">Timer</string>
+    <string name="channel_warning">Break warning</string>
+    <string name="channel_done">Break finished</string>
+
+    <!-- Status notification -->
+    <string name="status_working_title">Next break</string>
+    <string name="status_working_text">Every %1$d min · %2$d s break</string>
+    <string name="status_screen_off_title">Paused while the screen is off</string>
+    <string name="status_break_title">Time to look away</string>
+    <string name="status_paused_title">Breaks paused</string>
+    <string name="status_paused_text">Resumes at %1$s</string>
+    <string name="status_stopped_title">Stopped</string>
+    <plurals name="minutes_left">
+        <item quantity="one">Next break in %d minute</item>
+        <item quantity="other">Next break in %d minutes</item>
+    </plurals>
+
+    <string name="warning_title">Break in %1$d seconds</string>
+    <string name="done_title">Break over. Back to it!</string>
+
+    <!-- Actions -->
+    <string name="action_pause_30">Pause 30 min</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_resume">Resume</string>
+</resources>
