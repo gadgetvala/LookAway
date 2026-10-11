@@ -1,40 +1,51 @@
 # LookAway for Android
 
-An Android port of the macOS [LookAway](../LookAway) app. It enforces the
+An Android port of the macOS [LookAway](https://github.com/samarsault/LookAway) app. It enforces the
 [20-20-20 rule](https://www.aao.org/eye-health/tips-prevention/computer-usage): every 20 minutes
 it covers the screen for 20 seconds and asks you to look at something 20 feet away.
 
 You start it once. After that it keeps running in the background, survives the app being swiped
 away, process kills, reboots and app updates, and only stops when you tap **Stop**.
 
-| | |
-|---|---|
-| Flutter | 3.47 / Dart 3.13 |
-| Android | minSdk 26 (8.0), targetSdk 36 |
-| State | flutter_riverpod 3 |
-| Native | Kotlin, no extra Android libraries |
+## Screenshots
+
+|                                                     Home                                                     |                                                             Schedule                                                              |                                         Setup                                          |
+| :----------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
+| <img src="assets/demo/LookAway_Homescreen_1.jpg" width="240" alt="Home screen with countdown to next break"> | <img src="assets/demo/LookAway_Homescreen_2.jpg" width="240" alt="Schedule settings: interval, break length, screen-on behavior"> | <img src="assets/demo/LookAway_Setting.jpg" width="240" alt="Permission setup screen"> |
+
+<p align="center">
+  <img src="assets/demo/LookAway_Notification.jpg" width="480" alt="Ongoing notification with Pause, Reset and Stop actions"><br>
+  <em>Ongoing notification with quick actions</em>
+</p>
+
+|         |                                    |
+| ------- | ---------------------------------- |
+| Flutter | 3.47 / Dart 3.13                   |
+| Android | minSdk 26 (8.0), targetSdk 36      |
+| State   | flutter_riverpod 3                 |
+| Native  | Kotlin, no extra Android libraries |
 
 ---
 
 ## How it maps to the macOS app
 
-| macOS | Android |
-|---|---|
-| Menu bar item `👁️ 14 min` | Persistent notification with a live countdown (native chronometer) |
-| Menu: Reset / Skip For 10m 30m 1h 2h / Quit | In app: Reset, Break now, Pause for 10m 30m 1h 2h, Stop. Notification actions: Pause 30 min, Reset, Stop |
-| "20 seconds left" notification | "Break in 20 seconds" heads-up notification |
-| Borderless window at `.screenSaver` level, 90% black, one per display | Full-screen `TYPE_APPLICATION_OVERLAY` window, same 90% black |
-| "Look Away" text + Skip button | Same layout, plus a live seconds countdown |
-| "Purr" sound when the break ends | "Break over" notification using the channel's sound (respects silent mode and Do Not Disturb) |
-| Hidden dock icon | Not applicable |
-| User adds it to Login Items by hand | Starts automatically after reboot and after app updates |
+| macOS                                                                 | Android                                                                                                  |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Menu bar item `👁️ 14 min`                                             | Persistent notification with a live countdown (native chronometer)                                       |
+| Menu: Reset / Skip For 10m 30m 1h 2h / Quit                           | In app: Reset, Break now, Pause for 10m 30m 1h 2h, Stop. Notification actions: Pause 30 min, Reset, Stop |
+| "20 seconds left" notification                                        | "Break in 20 seconds" heads-up notification                                                              |
+| Borderless window at `.screenSaver` level, 90% black, one per display | Full-screen `TYPE_APPLICATION_OVERLAY` window, same 90% black                                            |
+| "Look Away" text + Skip button                                        | Same layout, plus a live seconds countdown                                                               |
+| "Purr" sound when the break ends                                      | "Break over" notification using the channel's sound (respects silent mode and Do Not Disturb)            |
+| Hidden dock icon                                                      | Not applicable                                                                                           |
+| User adds it to Login Items by hand                                   | Starts automatically after reboot and after app updates                                                  |
 
 ### What's better than the Mac version
 
 - **Only screen time counts.** The timer pauses while the screen is off or locked. No reminder ever
   fires into an empty room.
-- **You choose what happens when the screen comes back on.** *Continue timer* (the default) picks
-  up exactly where the countdown stopped. *Restart timer* starts a fresh period if the screen was
+- **You choose what happens when the screen comes back on.** _Continue timer_ (the default) picks
+  up exactly where the countdown stopped. _Restart timer_ starts a fresh period if the screen was
   off for at least one break length, since that already counts as a break.
 - **Configurable.** Break every 10, 20, 30, 45 or 60 minutes; breaks of 20, 30 or 60 seconds.
 
@@ -127,14 +138,14 @@ default, and Google Play restricts), and it costs essentially no battery.
 
 ### Staying alive
 
-| Threat | Defense |
-|---|---|
-| App swiped from recents | Foreground service; the UI isn't needed |
-| Low-memory kill | Small native-only process; `START_STICKY` restarts it, and `BreakStore` restores the exact state |
-| Reboot | `BootReceiver` (`BOOT_COMPLETED`) |
-| App update | `BootReceiver` (`MY_PACKAGE_REPLACED`) |
+| Threat                                                                 | Defense                                                                                              |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| App swiped from recents                                                | Foreground service; the UI isn't needed                                                              |
+| Low-memory kill                                                        | Small native-only process; `START_STICKY` restarts it, and `BreakStore` restores the exact state     |
+| Reboot                                                                 | `BootReceiver` (`BOOT_COMPLETED`)                                                                    |
+| App update                                                             | `BootReceiver` (`MY_PACKAGE_REPLACED`)                                                               |
 | Aggressive OEM battery managers (Xiaomi, Samsung, Oppo, Vivo, OnePlus) | Setup screen sends the user to App info to set Battery to **Unrestricted** and turn on **Autostart** |
-| All of the above failed | Opening the app restarts the service, or re-syncs it if it's running (`MainActivity.onResume`) |
+| All of the above failed                                                | Opening the app restarts the service, or re-syncs it if it's running (`MainActivity.onResume`)       |
 
 Timer state is stored as `elapsedRealtime` timestamps together with the device boot count.
 State saved during a previous boot is discarded, because those timestamps are meaningless after a
@@ -146,8 +157,6 @@ shouldn't. That's the user's call.
 ---
 
 ## Folder structure
-
-The layout follows the team's Flutter reference project (`ReferanceDa`).
 
 ```
 lib/
@@ -182,7 +191,7 @@ android/app/src/main/res/
 └── drawable/, mipmap-anydpi/         # Adaptive launcher icon (vector redraw of the Mac logo), status icon
 ```
 
-### Where this differs from the reference project
+### Design choices
 
 - **Riverpod `Notifier` / `StreamProvider`** instead of `ChangeNotifierProvider` from
   `flutter_riverpod/legacy.dart`. The legacy API is deprecated in Riverpod 3.
@@ -195,13 +204,13 @@ android/app/src/main/res/
 
 ## Permissions
 
-| Permission | Why | How it's granted |
-|---|---|---|
-| `SYSTEM_ALERT_WINDOW` | The break overlay | Settings → Display over other apps (required) |
-| `POST_NOTIFICATIONS` | Countdown, warning, end-of-break sound | Runtime dialog on Android 13+, otherwise app notification settings |
-| `FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_SPECIAL_USE` | The always-on timer | Granted at install |
-| `RECEIVE_BOOT_COMPLETED` | Restart after reboot | Granted at install |
-| Battery "Unrestricted" | Stops OEM killers | App info → Battery (the app links straight there) |
+| Permission                                              | Why                                    | How it's granted                                                   |
+| ------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------ |
+| `SYSTEM_ALERT_WINDOW`                                   | The break overlay                      | Settings → Display over other apps (required)                      |
+| `POST_NOTIFICATIONS`                                    | Countdown, warning, end-of-break sound | Runtime dialog on Android 13+, otherwise app notification settings |
+| `FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_SPECIAL_USE` | The always-on timer                    | Granted at install                                                 |
+| `RECEIVE_BOOT_COMPLETED`                                | Restart after reboot                   | Granted at install                                                 |
+| Battery "Unrestricted"                                  | Stops OEM killers                      | App info → Battery (the app links straight there)                  |
 
 If the overlay permission is revoked while the app is running, breaks fall back to a heads-up
 notification, so a break is never lost silently.
@@ -238,8 +247,8 @@ cd android && ./gradlew :app:testDebugUnitTest     # Kotlin: BreakTimer state ma
    closes it.
 4. In a debug build, pick **1 min**. The warning arrives at 0:20, the overlay at 0:00, and a sound
    plays when the break ends.
-5. Note the countdown, lock the phone for a minute, then unlock. With *Continue timer* it carries
-   on from the same value. With *Restart timer* it starts a full period again. Either way it must be
+5. Note the countdown, lock the phone for a minute, then unlock. With _Continue timer_ it carries
+   on from the same value. With _Restart timer_ it starts a full period again. Either way it must be
    **running** again; check both the app and the notification.
 6. Same as step 5, but stay on the lock screen for about 10 seconds before unlocking. The timer
    should stay frozen until you're past the lock screen.
@@ -248,17 +257,6 @@ cd android && ./gradlew :app:testDebugUnitTest     # Kotlin: BreakTimer state ma
 9. Try the notification actions: Pause 30 min, Reset, Stop.
 
 ---
-
-## Publishing to Google Play
-
-- **`specialUse` foreground service.** Play Console asks for a written justification and a short
-  video. The justification text is already in `AndroidManifest.xml`
-  (`PROPERTY_SPECIAL_USE_FGS_SUBTYPE`).
-- **The app does not use `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS`.** Play often rejects apps that
-  use it. The app opens App info instead, which is allowed, and on Xiaomi phones that page also has
-  Autostart.
-- **Don't switch the overlay to an Accessibility service.** That would cover the status bar and be
-  harder to kill, but Play bans Accessibility use for non-accessibility purposes.
 
 ## Known limitations
 
