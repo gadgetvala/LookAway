@@ -166,7 +166,7 @@ lib/
     │   └── permissions/              # First-run setup and reliability settings
     └── widgets/                      # SectionCard, OptionChips
 
-android/app/src/main/kotlin/co/tekonika/lookaway/
+android/app/src/main/kotlin/com/gadgetvala/lookaway/
 ├── MainActivity.kt                   # Channels: commands, state stream, permission intents
 ├── service/
 │   ├── BreakTimer.kt                 # Pure state machine (unit-tested)

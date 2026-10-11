@@ -1,10 +1,10 @@
-package co.tekonika.lookaway.receiver
+package com.gadgetvala.lookaway.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import co.tekonika.lookaway.service.BreakService
-import co.tekonika.lookaway.service.BreakStore
+import com.gadgetvala.lookaway.service.BreakService
+import com.gadgetvala.lookaway.service.BreakStore
 
 /** Restarts the timer after a reboot or an app update, if the user had it running. */
 class BootReceiver : BroadcastReceiver() {

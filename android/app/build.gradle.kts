@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "co.tekonika.lookaway"
+    namespace = "com.gadgetvala.lookaway"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "co.tekonika.lookaway"
+        applicationId = "com.gadgetvala.lookaway"
         // 26 = Android 8.0: notification channels, TYPE_APPLICATION_OVERLAY, startForegroundService.
         minSdk = 26
         targetSdk = flutter.targetSdkVersion

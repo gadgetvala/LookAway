@@ -1,4 +1,4 @@
-package co.tekonika.lookaway.service
+package com.gadgetvala.lookaway.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -9,8 +9,8 @@ import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
 import android.text.format.DateFormat
-import co.tekonika.lookaway.MainActivity
-import co.tekonika.lookaway.R
+import com.gadgetvala.lookaway.MainActivity
+import com.gadgetvala.lookaway.R
 
 /**
  * All notification UI. Channels are the user-facing knobs: anyone who finds the warning or the

@@ -1,4 +1,4 @@
-package co.tekonika.lookaway.service
+package com.gadgetvala.lookaway.service
 
 import android.app.KeyguardManager
 import android.app.Service
@@ -14,7 +14,7 @@ import android.os.Looper
 import android.os.PowerManager
 import android.os.SystemClock
 import android.util.Log
-import co.tekonika.lookaway.overlay.BreakOverlay
+import com.gadgetvala.lookaway.overlay.BreakOverlay
 
 /**
  * The always-on part of the app. A foreground service (type specialUse) owns the timer, the
@@ -195,14 +195,14 @@ class BreakService : Service() {
     private fun isLocked() = getSystemService(KeyguardManager::class.java).isKeyguardLocked
 
     companion object {
-        const val ACTION_RUN = "co.tekonika.lookaway.action.RUN"
-        const val ACTION_STOP = "co.tekonika.lookaway.action.STOP"
-        const val ACTION_RESET = "co.tekonika.lookaway.action.RESET"
-        const val ACTION_SKIP = "co.tekonika.lookaway.action.SKIP"
-        const val ACTION_BREAK_NOW = "co.tekonika.lookaway.action.BREAK_NOW"
-        const val ACTION_PAUSE = "co.tekonika.lookaway.action.PAUSE"
-        const val ACTION_RESUME = "co.tekonika.lookaway.action.RESUME"
-        const val ACTION_CONFIG = "co.tekonika.lookaway.action.CONFIG"
+        const val ACTION_RUN = "com.gadgetvala.lookaway.action.RUN"
+        const val ACTION_STOP = "com.gadgetvala.lookaway.action.STOP"
+        const val ACTION_RESET = "com.gadgetvala.lookaway.action.RESET"
+        const val ACTION_SKIP = "com.gadgetvala.lookaway.action.SKIP"
+        const val ACTION_BREAK_NOW = "com.gadgetvala.lookaway.action.BREAK_NOW"
+        const val ACTION_PAUSE = "com.gadgetvala.lookaway.action.PAUSE"
+        const val ACTION_RESUME = "com.gadgetvala.lookaway.action.RESUME"
+        const val ACTION_CONFIG = "com.gadgetvala.lookaway.action.CONFIG"
         const val EXTRA_MINUTES = "minutes"
         private const val UNLOCK_POLL_MS = 1_000L
         private const val TAG = "LookAway"

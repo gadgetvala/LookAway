@@ -1,4 +1,4 @@
-package co.tekonika.lookaway.service
+package com.gadgetvala.lookaway.service
 
 enum class Phase { STOPPED, WORKING, BREAK, PAUSED }
 

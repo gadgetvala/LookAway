@@ -1,4 +1,4 @@
-package co.tekonika.lookaway.overlay
+package com.gadgetvala.lookaway.overlay
 
 import android.content.Context
 import android.graphics.PixelFormat
@@ -14,8 +14,8 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
-import co.tekonika.lookaway.R
-import co.tekonika.lookaway.service.BreakConfig
+import com.gadgetvala.lookaway.R
+import com.gadgetvala.lookaway.service.BreakConfig
 
 /**
  * Full-screen break overlay drawn over every app via SYSTEM_ALERT_WINDOW: the Android counterpart

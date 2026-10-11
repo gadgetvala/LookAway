@@ -1,4 +1,4 @@
-package co.tekonika.lookaway
+package com.gadgetvala.lookaway
 
 import android.Manifest
 import android.app.NotificationManager
@@ -8,9 +8,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
-import co.tekonika.lookaway.service.BreakConfig
-import co.tekonika.lookaway.service.BreakService
-import co.tekonika.lookaway.service.BreakStore
+import com.gadgetvala.lookaway.service.BreakConfig
+import com.gadgetvala.lookaway.service.BreakService
+import com.gadgetvala.lookaway.service.BreakStore
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
@@ -109,8 +109,8 @@ class MainActivity : FlutterActivity() {
     }
 
     private companion object {
-        const val CONTROL_CHANNEL = "co.tekonika.lookaway/control"
-        const val STATE_CHANNEL = "co.tekonika.lookaway/state"
+        const val CONTROL_CHANNEL = "com.gadgetvala.lookaway/control"
+        const val STATE_CHANNEL = "com.gadgetvala.lookaway/state"
         const val KEY_ASKED_NOTIFICATIONS = "asked_notifications"
     }
 }

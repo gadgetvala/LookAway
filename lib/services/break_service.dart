@@ -7,8 +7,8 @@ import 'package:look_away/models/break_state.dart';
 class BreakService {
   BreakService._();
 
-  static const _control = MethodChannel('co.tekonika.lookaway/control');
-  static const _state = EventChannel('co.tekonika.lookaway/state');
+  static const _control = MethodChannel('com.gadgetvala.lookaway/control');
+  static const _state = EventChannel('com.gadgetvala.lookaway/state');
 
   static final Stream<BreakState> states = _state.receiveBroadcastStream().map(
     (event) => BreakState.fromMap(event as Map<Object?, Object?>),

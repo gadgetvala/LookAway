@@ -1,4 +1,4 @@
-package co.tekonika.lookaway.service
+package com.gadgetvala.lookaway.service
 
 import android.content.Context
 import android.provider.Settings
