@@ -1,6 +1,7 @@
 # LookAway for Android
 
-An Android port of the macOS [LookAway](https://github.com/samarsault/LookAway) app. It enforces the
+An Android port of the macOS [LookAway](https://github.com/samarsault/LookAway) app by
+[Samarjeet Singh](https://github.com/samarsault). It enforces the
 [20-20-20 rule](https://www.aao.org/eye-health/tips-prevention/computer-usage): every 20 minutes
 it covers the screen for 20 seconds and asks you to look at something 20 feet away.
 
@@ -266,3 +267,11 @@ cd android && ./gradlew :app:testDebugUnitTest     # Kotlin: BreakTimer state ma
   Cmd+Tab works on macOS.
 - Phones with very aggressive battery management may still kill the timer until the user changes
   the setting on the setup screen. See [dontkillmyapp.com](https://dontkillmyapp.com).
+
+---
+
+## Credits
+
+LookAway for Android is based on [LookAway](https://github.com/samarsault/LookAway) for macOS by
+[Samarjeet Singh](https://github.com/samarsault). The idea, break flow, overlay design and app icon
+(redrawn as an Android vector) come from the original app, which is released under the MIT License:
